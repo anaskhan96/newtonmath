@@ -27,7 +27,7 @@ The `DataResult` returnedis of type `Result<String, reqwest::Error>`.
 * Add `newtonmath` as a dependency in your `Cargo.toml`
 ```toml
 [dependencies]
-newtonmath = "0.1.0"
+newtonmath = "0.2.0"
 ```
 
 * Include it in your code
