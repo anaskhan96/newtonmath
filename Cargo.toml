@@ -1,0 +1,6 @@
+[package]
+name = "newtonmath"
+version = "0.1.0"
+authors = ["Anas Khan <anas.khan96@outlook.com>"]
+
+[dependencies]
