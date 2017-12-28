@@ -1,6 +1,6 @@
 # newtonmath
 
-`newtonmath` is Rust wrapper for the [Newton API](https://github.com/aunyks/newton-api), *a really micro micro-service for advanced math*.
+`newtonmath` is a Rust wrapper for the [Newton API](https://github.com/aunyks/newton-api), *a really micro micro-service for advanced math*.
 
 Functions implemented:
 ```rust
