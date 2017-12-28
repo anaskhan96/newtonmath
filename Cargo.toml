@@ -2,6 +2,10 @@
 name = "newtonmath"
 version = "0.1.0"
 authors = ["Anas Khan <anas.khan96@outlook.com>"]
+license = "MIT"
+repository = "https://github.com/anaskhan96/newtonmath"
+description = "Wrapper for the Newton API (https://newton.now.sh)"
+keywords = ["newton", "math", "api"]
 
 [dependencies]
 reqwest = "0.8.2"
