@@ -8,7 +8,11 @@ pub type DataResult = Result<String, reqwest::Error>;
 
 pub fn simplify(expression: &str) -> DataResult {
     let url = format!("{}/simplify/{}", ENDPOINT, expression);
-    let mut response = reqwest::get(&url)?;
+    fetch_result(&url)
+}
+
+fn fetch_result(url: &str) -> DataResult {
+    let mut response = reqwest::get(url)?;
     let data: Value = serde_json::from_str(&response.text().unwrap()).unwrap();
-    Ok(String::from(format!("{}", data["result"])))
+    Ok(String::from(format!("{}",data["result"])))
 }
