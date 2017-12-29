@@ -29,7 +29,7 @@ The `StringResult` returned is of type `Result<String, reqwest::Error>` whereas 
 * Add `newtonmath` as a dependency in your `Cargo.toml`
 ```toml
 [dependencies]
-newtonmath = "0.2.2"
+newtonmath = "0.3.0"
 ```
 
 * Include it in your code

@@ -1,6 +1,6 @@
 [package]
 name = "newtonmath"
-version = "0.2.2"
+version = "0.3.0"
 authors = ["Anas Khan <anas.khan96@outlook.com>"]
 license = "MIT"
 repository = "https://github.com/anaskhan96/newtonmath"
@@ -10,3 +10,4 @@ keywords = ["newton", "math", "api"]
 [dependencies]
 reqwest = "0.8.2"
 serde_json = "1.0.8"
+failure = "0.1.1"

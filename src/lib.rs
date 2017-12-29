@@ -1,11 +1,14 @@
 extern crate reqwest;
 extern crate serde_json;
+#[macro_use]
+extern crate failure;
 
 use self::serde_json::Value;
+use failure::Error;
 
 const ENDPOINT: &str = "https://newton.now.sh";
-pub type StringResult = Result<String, reqwest::Error>;
-pub type VectorResult = Result<Vec<i64>, reqwest::Error>;
+pub type StringResult = Result<String, Error>;
+pub type VectorResult = Result<Vec<i64>, Error>;
 
 /// /simplify endpoint
 pub fn simplify(expression: &str) -> StringResult {
@@ -35,12 +38,20 @@ pub fn integrate(expression: &str) -> StringResult {
 pub fn find_zeroes(expression: &str) -> VectorResult {
     let url = format!("{}/zeroes/{}", ENDPOINT, expression);
     let mut response = reqwest::get(&url)?;
-    let data: Value = serde_json::from_str(&response.text().unwrap()).unwrap();
+    let data: Value = serde_json::from_str(&response.text()?)?;
     let mut val = Vec::new();
-    for i in data["result"].as_array().unwrap() {
-        val.push(i.as_i64().unwrap());
+    match data["result"].as_array() {
+        None => Err(format_err!("Result not an array")),
+        Some(arr) => {
+            for i in arr {
+                match i.as_i64() {
+                    None => return Err(format_err!("Element in array not an integer")),
+                    Some(ele) => val.push(ele),
+                };
+            }
+            Ok(val)
+        }
     }
-    Ok(val)
 }
 
 /// /tangent endpoint
@@ -105,6 +116,9 @@ pub fn logarithm(expression: &str) -> StringResult {
 
 fn fetch_result(url: &str) -> StringResult {
     let mut response = reqwest::get(url)?;
-    let data: Value = serde_json::from_str(&response.text().unwrap()).unwrap();
-    Ok(String::from(data["result"].as_str().unwrap()))
+    let data: Value = serde_json::from_str(&response.text()?)?;
+    match data["result"].as_str() {
+        None => Err(format_err!("Result not a string")),
+        Some(val) => Ok(String::from(val)),
+    }
 }
