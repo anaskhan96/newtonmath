@@ -20,7 +20,7 @@ fn inverse_tangent(exp: &str) -> DataResult // /arctan endpoint
 fn absolute_value(exp: &str) -> DataResult // /abs endpoint
 fn logarithm(exp: &str) -> DataResult // /log endpoint
 ```
-The `DataResult` returnedis of type `Result<String, reqwest::Error>`.
+The `DataResult` returned is of type `Result<String, reqwest::Error>`.
 
 ### Setup
 
