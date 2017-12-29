@@ -1,5 +1,6 @@
 # newtonmath
 [![Build Status](https://travis-ci.org/anaskhan96/newtonmath.svg?branch=master)](https://travis-ci.org/anaskhan96/newtonmath)
+[![Crates.io](https://img.shields.io/crates/v/rustc-serialize.svg)](https://crates.io/crates/newtonmath)
 
 `newtonmath` is a Rust wrapper for the [Newton API](https://github.com/aunyks/newton-api), *a really micro micro-service for advanced math*.
 
