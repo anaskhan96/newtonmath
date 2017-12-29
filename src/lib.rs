@@ -99,5 +99,5 @@ pub fn logarithm(expression: &str) -> DataResult {
 fn fetch_result(url: &str) -> DataResult {
     let mut response = reqwest::get(url)?;
     let data: Value = serde_json::from_str(&response.text().unwrap()).unwrap();
-    Ok(String::from(format!("{}", data["result"])))
+    Ok(format!("{}", data["result"]))
 }
