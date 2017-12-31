@@ -43,7 +43,7 @@ pub fn find_zeroes(expression: &str) -> VectorResult {
     match data["result"].as_array() {
         None => Err(format_err!("Result not an array")),
         Some(arr) => {
-            for i in arr {
+            for i in arr.into_iter() {
                 match i.as_i64() {
                     None => return Err(format_err!("Element in array not an integer")),
                     Some(ele) => val.push(ele),
