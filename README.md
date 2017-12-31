@@ -22,7 +22,7 @@ fn inverse_tangent(exp: &str) -> StringResult // /arctan endpoint
 fn absolute_value(exp: &str) -> StringResult // /abs endpoint
 fn logarithm(exp: &str) -> StringResult // /log endpoint
 ```
-The `StringResult` returned is of type `Result<String, reqwest::Error>` whereas the `VectorResult` returned is of type `Result<Vec<i64>, reqwest::Error>`.
+The `StringResult` returned is of type `Result<String, failure::Error>` whereas the `VectorResult` returned is of type `Result<Vec<i64>, failure::Error>`.
 
 ### Setup
 
